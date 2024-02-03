@@ -7,7 +7,9 @@ export default function Home() {
         <Link href="/1-step">
           <li>1-steps</li>
         </Link>
-        <li className="pl-4">2-email</li>
+        <Link href="/2-email">
+          <li className="pl-4">2-email</li>
+        </Link>
         <li className="pl-4">3-header-part-1</li>
       </ul>
     </div>
