@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import * as Icons from "@heroicons/react/outline";
 
 let titles = [
@@ -27,7 +28,7 @@ export default function Email() {
   }
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center overscroll-y-contain bg-gradient-to-br from-slate-700 to-slate-900 py-8 px-6 text-slate-600">
+    <div className="flex h-screen flex-col items-center justify-center overscroll-y-contain bg-gradient-to-br from-slate-700 to-slate-900 px-6 py-8 text-slate-600">
       <div className="mx-auto flex w-full max-w-3xl flex-1 overflow-hidden rounded-2xl bg-white ">
         <div className="flex w-[45%] flex-col bg-slate-50 py-2">
           <div className="border-b px-5">
@@ -38,23 +39,40 @@ export default function Email() {
               >
                 <Icons.MailIcon className="h-5 w-5 " />
               </button>
+              <button className="-mx-2 rounded px-2 hover:text-slate-500">
+                <Icons.ArchiveIcon className="h-5 w-5 " />
+              </button>
             </div>
           </div>
           <ul className="overflow-y-scroll px-3 pt-2">
             {[...messages].reverse().map((mid) => (
-              <li key={mid} className="relative py-0.5">
-                <button
-                  onClick={() => archiveMessage(mid)}
-                  className="block w-full cursor-pointer truncate rounded py-3 px-3 text-left hover:bg-slate-200"
+              <AnimatePresence key={mid} initial={false}>
+                <motion.li
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  transition={{ opacity: { duration: 0.2 } }}
+                  exit={{
+                    opacity: 0,
+                    height: 0,
+                    transition: { type: "spring", bounce: 0.5, duration: 1 },
+                  }}
+                  className="relative"
                 >
-                  <p className="truncate text-sm font-medium text-slate-500">
-                    {titles[mid % titles.length][0]}
-                  </p>
-                  <p className="truncate text-xs text-slate-400">
-                    {titles[mid % titles.length][1]}
-                  </p>
-                </button>
-              </li>
+                  <div className="py-0.5">
+                    <button
+                      onClick={() => archiveMessage(mid)}
+                      className="block w-full cursor-pointer truncate rounded px-3 py-3 text-left hover:bg-slate-200"
+                    >
+                      <p className="truncate text-sm font-medium text-slate-500">
+                        {titles[mid % titles.length][0]}
+                      </p>
+                      <p className="truncate text-xs text-slate-400">
+                        {titles[mid % titles.length][1]}
+                      </p>
+                    </button>
+                  </div>
+                </motion.li>
+              </AnimatePresence>
             ))}
           </ul>
         </div>
