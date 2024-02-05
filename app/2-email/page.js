@@ -25,12 +25,19 @@ export default function Email() {
     setMessages((messages) => [...messages, newId]);
   }
 
-  function selectMessage(mid) {
-    setSelectedMessages((messages) => [...messages, mid]);
+  function toggleMessage(mid) {
+    if (selectedMessages.includes(mid)) {
+      setSelectedMessages((messages) => messages.filter((id) => id !== mid));
+    } else {
+      setSelectedMessages((messages) => [...messages, mid]);
+    }
   }
 
-  function archiveMessage(mid) {
-    setMessages((messages) => messages.filter((id) => id !== mid));
+  function archivedSelectedMessages() {
+    setMessages((messages) =>
+      messages.filter((id) => !selectedMessages.includes(id)),
+    );
+    setSelectedMessages([]);
   }
 
   return (
@@ -45,7 +52,10 @@ export default function Email() {
               >
                 <Icons.MailIcon className="h-5 w-5" />
               </button>
-              <button className="-mx-2 rounded px-2 py-1 text-slate-400 hover:text-slate-500 active:bg-slate-200">
+              <button
+                onClick={archivedSelectedMessages}
+                className="-mx-2 rounded px-2 py-1 text-slate-400 hover:text-slate-500 active:bg-slate-200"
+              >
                 <Icons.ArchiveIcon className="h-5 w-5" />
               </button>
             </div>
@@ -68,7 +78,7 @@ export default function Email() {
                 >
                   <div className="py-0.5">
                     <button
-                      onClick={() => selectMessage(mid)}
+                      onClick={() => toggleMessage(mid)}
                       className={`${selectedMessages.includes(mid) ? "bg-blue-500" : "hover:bg-slate-200"} block w-full cursor-pointer truncate rounded px-3 py-3 text-left`}
                     >
                       <p
