@@ -1,7 +1,13 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { motion, useMotionValue, useScroll, useTransform } from "framer-motion";
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 
 let clamp = (number, min, max) => Math.min(Math.max(number, min), max);
 
@@ -29,20 +35,34 @@ function useBoundedScroll(bounds) {
 
 export default function Header() {
   let { scrollYBoundedProgress } = useBoundedScroll(50);
+  let scrollYBoundedProgressThrottled = useTransform(
+    scrollYBoundedProgress,
+    [0, 0.5, 1],
+    [0, 0, 1],
+  );
 
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-1 overflow-hidden bg-white text-slate-600 no-scrollbar">
       <div className="z-0 flex-1">
         <motion.header
           style={{
-            height: useTransform(scrollYBoundedProgress, [0, 1], [80, 50]),
+            height: useTransform(
+              scrollYBoundedProgressThrottled,
+              [0, 1],
+              [80, 50],
+            ),
+            backgroundColor: useMotionTemplate`rgb(255 255 255 / ${useTransform(scrollYBoundedProgressThrottled, [0, 1], [1, 0.1])})`,
           }}
           className="fixed inset-x-0 flex h-20 bg-white/10 shadow backdrop-blur-md"
         >
           <div className="mx-auto flex w-full max-w-3xl items-center justify-between px-8">
             <motion.p
               style={{
-                scale: useTransform(scrollYBoundedProgress, [0, 1], [1, 0.9]),
+                scale: useTransform(
+                  scrollYBoundedProgressThrottled,
+                  [0, 1],
+                  [1, 0.9],
+                ),
               }}
               className="flex origin-left items-center text-xl font-semibold uppercase"
             >
@@ -55,7 +75,11 @@ export default function Header() {
             </motion.p>
             <motion.nav
               style={{
-                opacity: useTransform(scrollYBoundedProgress, [0, 1], [1, 0]),
+                opacity: useTransform(
+                  scrollYBoundedProgressThrottled,
+                  [0, 1],
+                  [1, 0],
+                ),
               }}
               className="flex space-x-4 text-xs font-medium text-slate-400"
             >
