@@ -11,7 +11,10 @@ export default function Home() {
           <li className="pl-4">2-email</li>
         </Link>
         <Link href="/3-header">
-          <li className="pl-4">3-header-part-1</li>
+          <li className="pl-4">3-header</li>
+        </Link>
+        <Link href="/4-carousel">
+          <li className="pl-4">4-carousel</li>
         </Link>
       </ul>
     </div>
