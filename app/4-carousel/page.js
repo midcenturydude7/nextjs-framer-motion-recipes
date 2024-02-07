@@ -17,8 +17,8 @@ export default function Page() {
 
   return (
     <div className="h-full bg-black">
-      <div className="mx-auto flex h-full max-w-7xl flex-col justify-center">
-        <div className="relative h-3/6 w-full">
+      <div className="mx-auto flex h-full max-w-7xl flex-col justify-center items-center">
+        <div className="relative h-3/6 w-4/6">
           <Image
             alt="array of nyc images"
             src={images[index]}
