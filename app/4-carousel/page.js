@@ -18,12 +18,12 @@ export default function Page() {
   return (
     <div className="h-full bg-black">
       <div className="mx-auto flex h-full max-w-7xl flex-col justify-center">
-        <div className="relative">
+        <div className="relative h-3/6 w-full">
           <Image
             alt="array of nyc images"
-            src={images[1]}
-            width={300}
-            height={300}
+            src={images[index]}
+            objectFit="cover"
+            fill={true}
             className="aspect-[3/2] object-cover"
           />
 
