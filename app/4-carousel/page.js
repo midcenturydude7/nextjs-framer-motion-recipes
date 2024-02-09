@@ -19,7 +19,7 @@ export default function Page() {
   return (
     <MotionConfig transition={{ duration: 1.7, ease: [0.32, 0.72, 0, 1] }}>
       <div className="h-full bg-black">
-        <div className="mx-auto flex h-full max-w-7xl flex-col items-center justify-center">
+        <div className="mx-auto flex h-5/6 max-w-7xl flex-col items-center justify-center">
           <div className="relative overflow-hidden">
             <motion.div animate={{ x: `-${index * 100}%` }} className="flex">
               {images.map((image) => (
@@ -28,7 +28,7 @@ export default function Page() {
                   alt="array of nyc images"
                   src={image}
                   width={1280}
-                  height={500}
+                  height={300}
                   className="aspect-[3/2] object-cover"
                 />
               ))}
@@ -61,6 +61,25 @@ export default function Page() {
                 </motion.button>
               )}
             </AnimatePresence>
+          </div>
+
+          <div className="absolute inset-x-0 bottom-6 flex h-14 justify-center overflow-hidden">
+            <motion.div
+              animate={{ x: `-${index * 100}%` }}
+              className="flex aspect-[3/2] justify-center"
+            >
+              {images.map((image) => (
+                <button className="shrink-0 w-full" key={image}>
+                  <Image
+                    alt="array of nyc images"
+                    src={image}
+                    width={1280}
+                    height={300}
+                    className="aspect-[3/2] h-full object-cover"
+                  />
+                </button>
+              ))}
+            </motion.div>
           </div>
         </div>
       </div>
