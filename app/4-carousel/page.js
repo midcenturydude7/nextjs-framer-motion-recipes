@@ -13,6 +13,9 @@ let images = [
   "/images/6.jpeg",
 ];
 
+let collapsedAspectRatio = 1 / 3;
+let fullAspectRatio = 3 / 2;
+
 export default function Page() {
   let [index, setIndex] = React.useState(0);
 
@@ -65,17 +68,28 @@ export default function Page() {
 
           <div className="absolute inset-x-0 bottom-6 flex h-14 justify-center overflow-hidden">
             <motion.div
-              animate={{ x: `-${index * 100}%` }}
-              className="flex aspect-[3/2] justify-center"
+              animate={{
+                x: `-${index * 100 * (collapsedAspectRatio / fullAspectRatio)}%`,
+              }}
+              style={{ aspectRatio: fullAspectRatio }}
+              className="flex justify-center"
             >
-              {images.map((image) => (
-                <button className="shrink-0 w-full" key={image}>
+              {images.map((image, i) => (
+                <button
+                  onClick={() => setIndex(i)}
+                  style={{
+                    aspectRatio:
+                      i === index ? fullAspectRatio : collapsedAspectRatio,
+                  }}
+                  className="shrink-0"
+                  key={image}
+                >
                   <Image
                     alt="array of nyc images"
                     src={image}
                     width={1280}
                     height={300}
-                    className="aspect-[3/2] h-full object-cover"
+                    className="h-full object-cover"
                   />
                 </button>
               ))}
