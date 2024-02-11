@@ -15,6 +15,7 @@ let images = [
 
 let collapsedAspectRatio = 1 / 3;
 let fullAspectRatio = 3 / 2;
+let margin = 12;
 
 export default function Page() {
   let [index, setIndex] = React.useState(0);
@@ -69,17 +70,19 @@ export default function Page() {
           <div className="absolute inset-x-0 bottom-6 flex h-14 justify-center overflow-hidden">
             <motion.div
               animate={{
-                x: `-${index * 100 * (collapsedAspectRatio / fullAspectRatio)}%`,
+                x: `-${index * 100 * (collapsedAspectRatio / fullAspectRatio) + margin}%`,
               }}
               style={{ aspectRatio: fullAspectRatio }}
               className="flex justify-center"
             >
               {images.map((image, i) => (
-                <button
+                <motion.button
                   onClick={() => setIndex(i)}
-                  style={{
+                  animate={{
                     aspectRatio:
                       i === index ? fullAspectRatio : collapsedAspectRatio,
+                    marginLeft: i === index ? `${margin}%` : 0,
+                    marginRight: i === index ? `${margin}%` : 0,
                   }}
                   className="shrink-0"
                   key={image}
@@ -91,7 +94,7 @@ export default function Page() {
                     height={300}
                     className="h-full object-cover"
                   />
-                </button>
+                </motion.button>
               ))}
             </motion.div>
           </div>
