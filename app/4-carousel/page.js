@@ -22,7 +22,7 @@ export default function Page() {
 
   return (
     <MotionConfig transition={{ duration: 1.7, ease: [0.32, 0.72, 0, 1] }}>
-      <div className="h-full bg-black">
+      <div className="h-full bg-black pt-8">
         <div className="mx-auto flex h-5/6 max-w-7xl flex-col items-center justify-center">
           <div className="relative overflow-hidden">
             <motion.div animate={{ x: `-${index * 100}%` }} className="flex">
@@ -69,6 +69,7 @@ export default function Page() {
 
           <div className="absolute inset-x-0 bottom-6 flex h-14 justify-center overflow-hidden">
             <motion.div
+              initial={false}
               animate={{
                 x: `-${index * 100 * (collapsedAspectRatio / fullAspectRatio) + margin}%`,
               }}
@@ -78,11 +79,19 @@ export default function Page() {
               {images.map((image, i) => (
                 <motion.button
                   onClick={() => setIndex(i)}
-                  animate={{
-                    aspectRatio:
-                      i === index ? fullAspectRatio : collapsedAspectRatio,
-                    marginLeft: i === index ? `${margin}%` : 0,
-                    marginRight: i === index ? `${margin}%` : 0,
+                  initial={false}
+                  animate={i === index ? "active" : "inactive"}
+                  variants={{
+                    active: {
+                      aspectRatio: fullAspectRatio,
+                      marginLeft: `${margin}%`,
+                      marginRight: `${margin}%`,
+                    },
+                    inactive: {
+                      aspectRatio: collapsedAspectRatio,
+                      marginLeft: 0,
+                      marginRight: 0,
+                    },
                   }}
                   className="shrink-0"
                   key={image}
