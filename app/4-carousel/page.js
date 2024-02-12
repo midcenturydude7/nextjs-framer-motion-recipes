@@ -16,6 +16,7 @@ let images = [
 let collapsedAspectRatio = 1 / 3;
 let fullAspectRatio = 3 / 2;
 let margin = 12;
+let gap = 3.25;
 
 export default function Page() {
   let [index, setIndex] = React.useState(0);
@@ -26,11 +27,12 @@ export default function Page() {
         <div className="mx-auto flex h-5/6 max-w-7xl flex-col items-center justify-center">
           <div className="relative overflow-hidden">
             <motion.div animate={{ x: `-${index * 100}%` }} className="flex">
-              {images.map((image) => (
-                <Image
+              {images.map((image, i) => (
+                <motion.img
                   key={image}
                   alt="array of nyc images"
                   src={image}
+                  animate={{ opacity: i === index ? 1 : 0.3 }}
                   width={1280}
                   height={300}
                   className="aspect-[3/2] object-cover"
@@ -71,26 +73,29 @@ export default function Page() {
             <motion.div
               initial={false}
               animate={{
-                x: `-${index * 100 * (collapsedAspectRatio / fullAspectRatio) + margin}%`,
+                x: `-${index * 100 * (collapsedAspectRatio / fullAspectRatio) + margin + index * gap}%`,
               }}
-              style={{ aspectRatio: fullAspectRatio }}
+              style={{ aspectRatio: fullAspectRatio, gap: `${gap}%` }}
               className="flex justify-center"
             >
               {images.map((image, i) => (
                 <motion.button
                   onClick={() => setIndex(i)}
                   initial={false}
+                  whileHover={{ scale: 1.1, opacity: 1 }}
                   animate={i === index ? "active" : "inactive"}
                   variants={{
                     active: {
                       aspectRatio: fullAspectRatio,
                       marginLeft: `${margin}%`,
                       marginRight: `${margin}%`,
+                      opacity: 1,
                     },
                     inactive: {
                       aspectRatio: collapsedAspectRatio,
                       marginLeft: 0,
                       marginRight: 0,
+                      opacity: 0.5,
                     },
                   }}
                   className="shrink-0"
