@@ -16,6 +16,9 @@ export default function Home() {
         <Link href="/4-carousel">
           <li className="pl-4">4-carousel</li>
         </Link>
+        <Link href="/5-panel">
+          <li className="pl-4">5-panel</li>
+        </Link>
       </ul>
     </div>
   );
