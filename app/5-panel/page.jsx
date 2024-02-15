@@ -2,54 +2,76 @@
 import React from "react";
 import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import { CheckIcon } from "@heroicons/react/solid";
+import useMeasure from "react-use-measure";
 
-let transition = { type: "ease", ease: "easeInOut", duration: 1 };
+let transition = { type: "ease", ease: "easeInOut", duration: 2 };
 
 export default function ResizablePanel() {
   let [status, setStatus] = React.useState("idle");
+  let [ref, bounds] = useMeasure();
+  console.log(bounds.height);
 
   return (
-    <MotionConfig transition={{ duration: 0.5 }}>
+    <MotionConfig transition={transition}>
       <div className="flex min-h-screen flex-col items-start bg-zinc-900 pt-28">
         <div className="mx-auto w-full max-w-md">
-          <div className="rounded-2xl border border-zinc-700 bg-zinc-800">
+          <div className="overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-800">
             <div className="px-8 pt-8">
               <p className="text-lg text-white">Reset password</p>
             </div>
-            <AnimatePresence mode="wait">
-              {status === "idle" || status === "saving" ? (
-                <motion.div exit={{ opacity: 0 }} key="form">
-                  <Form
-                    onSubmit={async () => await delay(1000)}
-                    afterSave={() => setStatus("success")}
-                    className="p-8"
-                  >
-                    <p className="text-sm text-zinc-400">
-                      Enter your email to get a password reset link:
-                    </p>
-                    <div className="mt-3">
-                      <input
-                        className="block w-full rounded border-none text-slate-900"
-                        type="email"
-                        required
-                        defaultValue="mgriffes@gmail.com"
-                      />
-                    </div>
-                    <div className="mt-8 text-right">
-                      <Form.Button className="rounded bg-indigo-500 px-5 py-2 text-sm font-medium text-white ">
-                        Email me my link
-                      </Form.Button>
-                    </div>
-                  </Form>
-                </motion.div>
-              ) : (
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                  <p className="p-8 text-sm text-zinc-400">
-                    Email sent! Check your inbox to continue.
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+
+            <motion.div animate={{ height: bounds.height }}>
+              <div ref={ref}>
+                <AnimatePresence mode="popLayout">
+                  {status === "idle" || status === "saving" ? (
+                    <motion.div
+                      exit={{ opacity: 0 }}
+                      transition={{
+                        ...transition,
+                        duration: transition.duration / 2,
+                      }}
+                      key="form"
+                    >
+                      <Form
+                        onSubmit={async () => await delay(1000)}
+                        afterSave={() => setStatus("success")}
+                        className="p-8"
+                      >
+                        <p className="text-sm text-zinc-400">
+                          Enter your email to get a password reset link:
+                        </p>
+                        <div className="mt-3">
+                          <input
+                            className="block w-full rounded border-none text-slate-900"
+                            type="email"
+                            required
+                            defaultValue="mgriffes@gmail.com"
+                          />
+                        </div>
+                        <div className="mt-8 text-right">
+                          <Form.Button className="rounded bg-indigo-500 px-5 py-2 text-sm font-medium text-white ">
+                            Email me my link
+                          </Form.Button>
+                        </div>
+                      </Form>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{
+                        ...transition,
+                        duration: transition.duration / 2,
+                      }}
+                    >
+                      <p className="p-8 text-sm text-zinc-400">
+                        Email sent! Check your inbox to continue.
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </motion.div>
           </div>
           <p className="mt-8 text-sm text-zinc-500">
             <span className="underline">Reach out</span> to us if you need more
