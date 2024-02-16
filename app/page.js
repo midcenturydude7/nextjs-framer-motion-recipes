@@ -19,6 +19,9 @@ export default function Home() {
         <Link href="/5-panel">
           <li className="pl-4">5-panel</li>
         </Link>
+        <Link href="/6-calendar">
+          <li className="pl-4">6-calendar</li>
+        </Link>
       </ul>
     </div>
   );
