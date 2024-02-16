@@ -4,12 +4,11 @@ import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import { CheckIcon } from "@heroicons/react/solid";
 import useMeasure from "react-use-measure";
 
-let transition = { type: "ease", ease: "easeInOut", duration: 2 };
+let transition = { type: "ease", ease: "easeInOut", duration: 0.75 };
 
 export default function ResizablePanel() {
   let [status, setStatus] = React.useState("idle");
   let [ref, bounds] = useMeasure();
-  console.log(bounds.height);
 
   return (
     <MotionConfig transition={transition}>
@@ -20,7 +19,11 @@ export default function ResizablePanel() {
               <p className="text-lg text-white">Reset password</p>
             </div>
 
-            <motion.div animate={{ height: bounds.height }}>
+            {/* Panel */}
+            <motion.div
+              animate={{ height: bounds.height > 0 ? bounds.height : null }}
+              transition={{ type: "spring", bounce: 0.2, duration: 0.8 }}
+            >
               <div ref={ref}>
                 <AnimatePresence mode="popLayout">
                   {status === "idle" || status === "saving" ? (
@@ -42,7 +45,7 @@ export default function ResizablePanel() {
                         </p>
                         <div className="mt-3">
                           <input
-                            className="block w-full rounded border-none text-slate-900"
+                            className="block w-full rounded border-none pl-3 text-slate-900"
                             type="email"
                             required
                             defaultValue="mgriffes@gmail.com"
@@ -62,6 +65,7 @@ export default function ResizablePanel() {
                       transition={{
                         ...transition,
                         duration: transition.duration / 2,
+                        delay: transition.duration / 2,
                       }}
                     >
                       <p className="p-8 text-sm text-zinc-400">
