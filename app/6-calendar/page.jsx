@@ -17,6 +17,22 @@ import {
   isSameMonth,
 } from "date-fns";
 
+let variants = {
+  enter: (direction) => {
+    return { x: `${-100 * direction}%`, opacity: 0 };
+  },
+  middle: { x: "0%", opacity: 1 },
+  exit: (direction) => {
+    return { x: `${100 * direction}%`, opacity: 0 };
+  },
+};
+
+let removeImmediately = {
+  exit: { visibility: "hidden" },
+};
+
+let transition = { type: "spring", bounce: 0, duration: 0.2 };
+
 export default function Page() {
   let [monthString, setMonthString] = React.useState(
     format(new Date(), "yyyy-MM"),
@@ -50,7 +66,7 @@ export default function Page() {
   });
 
   return (
-    <MotionConfig transition={{ duration: 0.25 }}>
+    <MotionConfig transition={transition}>
       <div className="flex min-h-screen items-start bg-stone-800 pt-16 text-stone-900">
         <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-2xl bg-white">
           <div className="py-8">
@@ -134,17 +150,3 @@ export default function Page() {
     </MotionConfig>
   );
 }
-
-let variants = {
-  enter: (direction) => {
-    return { x: `${-100 * direction}%`, opacity: 0 };
-  },
-  middle: { x: "0%", opacity: 1 },
-  exit: (direction) => {
-    return { x: `${100 * direction}%`, opacity: 0 };
-  },
-};
-
-let removeImmediately = {
-  exit: { visibility: "hidden" },
-};
