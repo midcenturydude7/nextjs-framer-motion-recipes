@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="bg-gray-100 shadow-lg">
+    <div className="fixed inset-x-0 z-10 bg-gray-100 shadow-lg">
       <ul className="flex items-center justify-center gap-2 py-10">
         <Link href="/1-step">
           <li>1-steps</li>
