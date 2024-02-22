@@ -41,8 +41,8 @@ export default function Email() {
   }
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center overscroll-y-contain bg-gradient-to-br from-slate-700 to-slate-900 px-6 py-8 text-slate-600">
-      <div className="mx-auto flex w-full max-w-3xl flex-1 overflow-hidden rounded-2xl bg-white ">
+    <div className="flex h-screen flex-col items-center justify-center overscroll-y-contain bg-gradient-to-br from-slate-700 to-slate-900 px-6 py-40 text-slate-600">
+      <div className="mx-auto flex w-full max-w-3xl flex-1 overflow-hidden rounded-2xl bg-white">
         <div className="flex w-[45%] flex-col bg-slate-50 py-2">
           <div className="border-b px-5">
             <div className="flex justify-between py-2 text-right">
