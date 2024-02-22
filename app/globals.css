@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -34,17 +34,17 @@ body {
 
 [type="checkbox"] {
   @apply cursor-pointer focus:ring-0 focus:ring-offset-0 focus-visible:ring focus-visible:ring-blue-400 focus-visible:ring-offset-2;
-}
+} */
 
 /*
   This will hide the focus indicator if the element receives focus via the mouse,
   but it will still show up on keyboard focus.
 */
-.js-focus-visible :focus:not(.focus-visible) {
+/* .js-focus-visible :focus:not(.focus-visible) {
   outline: none;
-}
+} */
 
-html,
+/* html,
 body,
 #__next {
   height: 100%;
@@ -52,4 +52,4 @@ body,
 
 html {
   @apply antialiased;
-}
+} */
