@@ -2,8 +2,9 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="fixed inset-x-0 z-10 bg-gray-100 shadow-lg">
-      <ul className="flex items-center justify-center gap-2 py-10">
+    <div className="fixed inset-x-0 z-10 bg-gray-900 shadow-lg">
+      <ul className="flex items-center justify-center gap-3 py-10 text-gray-300">
+        <li className="pr-2">Recipes:</li>
         <Link href="/1-step">
           <li>1-steps</li>
         </Link>
