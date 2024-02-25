@@ -25,7 +25,7 @@ export default function Header() {
             transition={{ duration: 0.2 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:text-slate-500"
+            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:font-semibold hover:text-slate-500"
           >
             <span>1-steps</span>
           </motion.li>
@@ -37,7 +37,7 @@ export default function Header() {
             transition={{ duration: 0.2 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:text-slate-500"
+            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:font-semibold hover:text-slate-500"
           >
             2-email
           </motion.li>
@@ -49,7 +49,7 @@ export default function Header() {
             transition={{ duration: 0.2 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:text-slate-500"
+            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:font-semibold hover:text-slate-500"
           >
             3-header
           </motion.li>
@@ -61,7 +61,7 @@ export default function Header() {
             transition={{ duration: 0.2 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:text-slate-500"
+            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:font-semibold hover:text-slate-500"
           >
             4-carousel
           </motion.li>
@@ -73,7 +73,7 @@ export default function Header() {
             transition={{ duration: 0.2 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:text-slate-500"
+            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:font-semibold hover:text-slate-500"
           >
             5-panel
           </motion.li>
@@ -85,7 +85,7 @@ export default function Header() {
             transition={{ duration: 0.2 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:text-slate-500"
+            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:font-semibold hover:text-slate-500"
           >
             6-calendar
           </motion.li>
