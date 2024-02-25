@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Header() {
   return (
@@ -6,7 +8,7 @@ export default function Header() {
       <ul className="flex items-center justify-center gap-3 py-10 text-gray-300">
         <li className="rounded-lg bg-slate-800 px-3 py-1">Recipes:</li>
         <Link href="/1-step">
-          <li className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center">
+          <li className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:text-slate-500">
             1-steps
           </li>
         </Link>
