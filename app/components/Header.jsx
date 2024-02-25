@@ -6,12 +6,13 @@ export default function Header() {
   return (
     <div className="fixed inset-x-0 z-10 bg-gray-900 shadow-lg">
       <motion.ul
-        className="flex items-center justify-center gap-3 py-10 text-gray-300"
+        className="flex items-center justify-center gap-5 py-10 text-gray-300"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
           duration: 1.2,
           type: "spring",
+          bounce: 0,
           ease: "easeInOut",
         }}
       >
@@ -22,7 +23,12 @@ export default function Header() {
           <motion.li
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 0.2 }}
+            transition={{
+              duration: 0.2,
+              type: "spring",
+              bounce: 0,
+              ease: "easeInOut",
+            }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:font-semibold hover:text-slate-500"
@@ -34,7 +40,12 @@ export default function Header() {
           <motion.li
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 0.2 }}
+            transition={{
+              duration: 0.2,
+              type: "spring",
+              bounce: 0,
+              ease: "easeInOut",
+            }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:font-semibold hover:text-slate-500"
@@ -46,7 +57,12 @@ export default function Header() {
           <motion.li
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 0.2 }}
+            transition={{
+              duration: 0.2,
+              type: "spring",
+              bounce: 0,
+              ease: "easeInOut",
+            }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:font-semibold hover:text-slate-500"
@@ -58,7 +74,12 @@ export default function Header() {
           <motion.li
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 0.2 }}
+            transition={{
+              duration: 0.2,
+              type: "spring",
+              bounce: 0,
+              ease: "easeInOut",
+            }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:font-semibold hover:text-slate-500"
@@ -70,7 +91,12 @@ export default function Header() {
           <motion.li
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 0.2 }}
+            transition={{
+              duration: 0.2,
+              type: "spring",
+              bounce: 0,
+              ease: "easeInOut",
+            }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:font-semibold hover:text-slate-500"
@@ -82,7 +108,12 @@ export default function Header() {
           <motion.li
             cinitial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 0.2 }}
+            transition={{
+              duration: 0.2,
+              type: "spring",
+              bounce: 0,
+              ease: "easeInOut",
+            }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
             className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:font-semibold hover:text-slate-500"
