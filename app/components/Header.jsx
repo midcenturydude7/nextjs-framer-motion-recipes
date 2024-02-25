@@ -5,39 +5,92 @@ import { motion } from "framer-motion";
 export default function Header() {
   return (
     <div className="fixed inset-x-0 z-10 bg-gray-900 shadow-lg">
-      <ul className="flex items-center justify-center gap-3 py-10 text-gray-300">
-        <li className="rounded-lg bg-slate-800 px-3 py-1">Recipes:</li>
+      <motion.ul
+        className="flex items-center justify-center gap-3 py-10 text-gray-300"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 1.2,
+          type: "spring",
+          ease: "easeInOut",
+        }}
+      >
+        <Link href="/">
+          <li className="rounded-lg bg-slate-800 px-3 py-1">Recipes:</li>
+        </Link>
         <Link href="/1-step">
-          <li className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:text-slate-500">
-            1-steps
-          </li>
+          <motion.li
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.2 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:text-slate-500"
+          >
+            <span>1-steps</span>
+          </motion.li>
         </Link>
         <Link href="/2-email">
-          <li className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center">
+          <motion.li
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.2 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:text-slate-500"
+          >
             2-email
-          </li>
+          </motion.li>
         </Link>
         <Link href="/3-header">
-          <li className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center">
+          <motion.li
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.2 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:text-slate-500"
+          >
             3-header
-          </li>
+          </motion.li>
         </Link>
         <Link href="/4-carousel">
-          <li className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center">
+          <motion.li
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.2 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:text-slate-500"
+          >
             4-carousel
-          </li>
+          </motion.li>
         </Link>
         <Link href="/5-panel">
-          <li className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center">
+          <motion.li
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.2 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:text-slate-500"
+          >
             5-panel
-          </li>
+          </motion.li>
         </Link>
         <Link href="/6-calendar">
-          <li className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center">
+          <motion.li
+            cinitial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 0.2 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:text-slate-500"
+          >
             6-calendar
-          </li>
+          </motion.li>
         </Link>
-      </ul>
+      </motion.ul>
     </div>
   );
 }
