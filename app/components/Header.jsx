@@ -10,10 +10,10 @@ export default function Header() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
-          duration: 1.2,
+          duration: 1.1,
           type: "spring",
-          bounce: 0,
-          ease: "easeInOut",
+          bounce: 0.25,
+          ease: "ease",
         }}
       >
         <Link href="/">
@@ -119,6 +119,23 @@ export default function Header() {
             className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:font-semibold hover:text-slate-500"
           >
             6-calendar
+          </motion.li>
+        </Link>
+        <Link href="/7-menu">
+          <motion.li
+            cinitial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{
+              duration: 0.2,
+              type: "spring",
+              bounce: 0,
+              ease: "easeInOut",
+            }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="min-w-24 rounded-lg bg-slate-700 px-3 py-1 text-center hover:bg-slate-100 hover:font-semibold hover:text-slate-500"
+          >
+            7-menu
           </motion.li>
         </Link>
       </motion.ul>

@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function Page() {
+export default function PageStep() {
   let [step, setStep] = React.useState(1);
 
   return (

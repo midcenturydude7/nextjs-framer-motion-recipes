@@ -25,7 +25,7 @@ let fullAspectRatio = 3 / 2;
 let margin = 12;
 let gap = 3.25;
 
-export default function Page() {
+export default function Carousel() {
   let [index, setIndex] = React.useState(0);
 
   useKeypress("ArrowRight", () => {

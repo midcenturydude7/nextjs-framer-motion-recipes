@@ -33,7 +33,7 @@ let removeImmediately = {
 
 let transition = { type: "spring", bounce: 0, duration: 0.2 };
 
-export default function Page() {
+export default function Calendar() {
   let [monthString, setMonthString] = React.useState(
     format(new Date(), "yyyy-MM"),
   );
